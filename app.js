@@ -5,9 +5,13 @@ var sjl = require("sjl");
 
 var defaults =
 {
-    "ENVIRONMENT": "production",
+    "ENVIRONMENT": "development",
     "HOST": "0.0.0.0",
-    "PORT": 4554
+    "PORT": 4554,
+    "VERSIONS":
+    {
+        // TODO
+    }
 };
 
 var CONF = sjl("/etc/versioncheck.json", defaults);
