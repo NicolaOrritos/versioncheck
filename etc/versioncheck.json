@@ -1,0 +1,6 @@
+
+{
+    "ENVIRONMENT": "production",
+    "HOST": "0.0.0.0",
+    "PORT": 4554
+}

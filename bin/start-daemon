@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * bin/start-bagarino-daemon
+ * bin/start-daemon
  */
 
 
@@ -12,14 +12,14 @@ require("daemon")();
 var cluster = require("cluster");
 var fs = require('fs');
 
-console.log("Starting bagarino daemon...");
+console.log("Starting versioncheck daemon...");
 
 
 // Load and apply some bare-bones config:
 var sjl = require("sjl");
 
 var defaults = {"ENVIRONMENT": "production"};
-var CONF = sjl("/etc/bagarino.conf", defaults);
+var CONF = sjl("/etc/versioncheck.conf", defaults);
 
 process.env["NODE_ENV"] = CONF.ENVIRONMENT;
 
@@ -52,7 +52,7 @@ function createWorkers(count)
         // Write the PID file:
         var pid = process.pid.toString();
         
-        fs.writeFile("/var/run/bagarino.pid", pid, function(err)
+        fs.writeFile("/var/run/versioncheck.pid", pid, function(err)
         {
             if (err)
             {
@@ -72,7 +72,7 @@ function createWorkers(count)
     }
     else
     {
-        // Run the bagarino server if running as worker
+        // Run the versioncheck server if running as worker
         require("../app");
     }
 }
