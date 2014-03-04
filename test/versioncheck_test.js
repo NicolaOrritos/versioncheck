@@ -22,15 +22,33 @@ var versioncheck = require('../lib/versioncheck.js');
     test.ifError(value)
 */
 
-exports.versioncheck = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(versioncheck.awesome(), 'awesome', 'should be awesome.');
-    test.done();
-  }
+exports.versioncheck =
+{
+    setUp: function(done)
+    {
+        // setup here
+        done();
+    },
+    
+    'no args': function(test)
+    {
+        test.expect(7);
+        
+        
+        var checkResult = versioncheck.check('0.0.0');
+        test.equal(checkResult.status, 'OK');
+        test.equal(checkResult.should_upgrade, true);
+        test.equal(checkResult.must_upgrade, true);
+                   
+        checkResult = versioncheck.check('1000.0.0');
+        test.equal(checkResult.status, 'OK');
+        test.equal(checkResult.should_upgrade, false);
+        test.equal(checkResult.must_upgrade, false);
+                   
+        checkResult = versioncheck.check('a.0.0');
+        test.equal(checkResult.status, 'NOT_OK');
+        
+        
+        test.done();
+    }
 };
