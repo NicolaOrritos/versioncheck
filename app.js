@@ -59,7 +59,7 @@ http.createServer(function(req, res)
         else
         {
             result.head.status_code = 400;
-            result.data = {"status": "NOT_OK", "error": "No version provided"};
+            result.data = {"status": "NOT_OK", "error": "Not all required parameters have been provided"};
         }
     }
     
