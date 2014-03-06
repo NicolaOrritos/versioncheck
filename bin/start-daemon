@@ -19,7 +19,7 @@ console.log("Starting versioncheck daemon...");
 var sjl = require("sjl");
 
 var defaults = {"ENVIRONMENT": "development"};
-var CONF = sjl("/etc/versioncheck.conf", defaults);
+var CONF = sjl("/etc/versioncheck.json", defaults);
 
 process.env["NODE_ENV"] = CONF.ENVIRONMENT;
 

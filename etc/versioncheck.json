@@ -4,7 +4,7 @@
     "HOST": "0.0.0.0",
     "PORT": 4554,
     "PLATFORMS":
-    [
+    {
         "WINXP":
         {
             "VERSIONS":
@@ -36,5 +36,5 @@
                 {"NUMBER": "0.4.0", "upgrade_url": "http://www.cornify.com/" }
             ]
         }
-    ]
+    }
 }

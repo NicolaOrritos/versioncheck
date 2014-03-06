@@ -1,6 +1,6 @@
 {
     "name": "versioncheck",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "main": "lib/versioncheck.js",
     "description": "Server-side version-check module for apps",
     "homepage": "http://github.com/NicolaOrritos/versioncheck",
