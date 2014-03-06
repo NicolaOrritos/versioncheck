@@ -3,9 +3,38 @@
     "ENVIRONMENT": "development",
     "HOST": "0.0.0.0",
     "PORT": 4554,
-    "VERSIONS":
+    "PLATFORMS":
     [
-        {"NUMBER": "1.0.0", "upgrade_url": "http://www.cornify.com/" },
-        {"NUMBER": "1.1.0", "upgrade_url": "http://www.megadeth.com/"}
+        "WINXP":
+        {
+            "VERSIONS":
+            [
+                {"NUMBER": "0.4.0", "upgrade_url": "http://www.cornify.com/" }
+            ]
+        },
+        
+        "WIN7":
+        {
+            "VERSIONS":
+            [
+                {"NUMBER": "0.4.0", "upgrade_url": "http://www.cornify.com/" }
+            ]
+        },
+        
+        "WIN8":
+        {
+            "VERSIONS":
+            [
+                {"NUMBER": "0.4.0", "upgrade_url": "http://www.cornify.com/" }
+            ]
+        },
+        
+        "OSX":
+        {
+            "VERSIONS":
+            [
+                {"NUMBER": "0.4.0", "upgrade_url": "http://www.cornify.com/" }
+            ]
+        }
     ]
 }

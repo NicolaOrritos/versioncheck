@@ -32,20 +32,23 @@ exports.versioncheck =
     
     'no args': function(test)
     {
-        test.expect(7);
+        test.expect(8);
         
         
-        var checkResult = versioncheck.check('0.0.0');
+        var checkResult = versioncheck.check('0.0.0', 'winxp');
         test.equal(checkResult.status, 'OK');
         test.equal(checkResult.should_upgrade, true);
-        test.equal(checkResult.must_upgrade, true);
+        test.equal(checkResult.must_upgrade, false);
                    
-        checkResult = versioncheck.check('1000.0.0');
+        checkResult = versioncheck.check('1000.0.0', 'osx');
         test.equal(checkResult.status, 'OK');
         test.equal(checkResult.should_upgrade, false);
         test.equal(checkResult.must_upgrade, false);
                    
-        checkResult = versioncheck.check('a.0.0');
+        checkResult = versioncheck.check('1.0.0', 'nonexistentOS');
+        test.equal(checkResult.status, 'NOT_OK');
+                   
+        checkResult = versioncheck.check('a.0.0', 'linux');
         test.equal(checkResult.status, 'NOT_OK');
         
         

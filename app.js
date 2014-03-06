@@ -41,9 +41,9 @@ http.createServer(function(req, res)
     {
         var query = urlParts.query;
         
-        if (query.version)
+        if (query.version && query.platform)
         {
-            var checkResult = versioncheck.check(query.version);
+            var checkResult = versioncheck.check(query.version, query.platform);
             
             if (checkResult.status === 'NOT_OK')
             {
