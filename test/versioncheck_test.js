@@ -30,9 +30,9 @@ exports.versioncheck =
         done();
     },
     
-    'no args': function(test)
+    'Simple': function(test)
     {
-        test.expect(8);
+        test.expect(14);
         
         
         var checkResult = versioncheck.check('0.0.0', 'winxp');
@@ -45,10 +45,20 @@ exports.versioncheck =
         test.equal(checkResult.should_upgrade, false);
         test.equal(checkResult.must_upgrade, false);
                    
+        checkResult = versioncheck.check('0.4.0', 'win8');
+        test.equal(checkResult.status, 'OK');
+        test.equal(checkResult.should_upgrade, true);
+        test.equal(checkResult.must_upgrade, false);
+                   
+        checkResult = versioncheck.check('0.5.0', 'win8');
+        test.equal(checkResult.status, 'OK');
+        test.equal(checkResult.should_upgrade, false);
+        test.equal(checkResult.must_upgrade, false);
+                   
         checkResult = versioncheck.check('1.0.0', 'nonexistentOS');
         test.equal(checkResult.status, 'NOT_OK');
                    
-        checkResult = versioncheck.check('a.0.0', 'linux');
+        checkResult = versioncheck.check('a.0.0', 'win7');
         test.equal(checkResult.status, 'NOT_OK');
         
         
